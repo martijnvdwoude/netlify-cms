@@ -49,6 +49,16 @@ const ListCardTitle = styled.h2`
   margin-bottom: 0;
 `;
 
+const ListCardLanguage = styled.h3`
+  margin-bottom: 0;
+  color: #7b8290;
+`;
+
+const ListCardPlatform = styled.h3`
+  margin-bottom: 0;
+  color: #7b8290;
+`;
+
 const CardHeading = styled.h2`
   margin: 0 0 2px;
 `;
@@ -91,6 +101,8 @@ const EntryCard = ({
   const label = entry.get('label');
   const title = label || entry.getIn(['data', inferedFields.titleField]);
   const path = `/collections/${collection.get('name')}/entries/${entry.get('slug')}`;
+  const platform = entry.getIn(['data', 'platform']);
+  const language = entry.getIn(['data', 'language']);
   let image = entry.getIn(['data', inferedFields.imageField]);
   image = resolvePath(image, publicFolder);
   if (image) {
@@ -103,6 +115,8 @@ const EntryCard = ({
         <ListCardLink to={path}>
           {collectionLabel ? <CollectionLabel>{collectionLabel}</CollectionLabel> : null}
           <ListCardTitle>{title}</ListCardTitle>
+          <ListCardPlatform>{platform}</ListCardPlatform>
+          <ListCardLanguage>{language}</ListCardLanguage>
         </ListCardLink>
       </ListCard>
     );
