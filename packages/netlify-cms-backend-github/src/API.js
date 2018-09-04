@@ -685,14 +685,12 @@ export default class API {
   }
 
   mergePR(pullrequest, objects) {
-    const headSha = pullrequest.head;
     const prNumber = pullrequest.number;
     console.log('%c Merging PR', 'line-height: 30px;text-align: center;font-weight: bold');
     return this.request(`${this.repoURL}/pulls/${prNumber}/merge`, {
       method: 'PUT',
       body: JSON.stringify({
         commit_message: 'Automatically generated. Merged on Netlify CMS.',
-        sha: headSha,
         merge_method: this.merge_method,
       }),
     }).catch(error => {
