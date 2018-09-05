@@ -47,16 +47,23 @@ const CollectionLabel = styled.h2`
 
 const ListCardTitle = styled.h2`
   margin-bottom: 0;
+  display: inline-block;
+  margin-right: 20px;
 `;
 
 const ListCardLanguage = styled.h3`
   margin-bottom: 0;
   color: #7b8290;
+  display: inline-block;
+  float: right;
 `;
 
 const ListCardPlatform = styled.h3`
   margin-bottom: 0;
+  margin-right: 30px;
   color: #7b8290;
+  display: inline-block;
+  float: right;
 `;
 
 const CardHeading = styled.h2`
@@ -115,8 +122,8 @@ const EntryCard = ({
         <ListCardLink to={path}>
           {collectionLabel ? <CollectionLabel>{collectionLabel}</CollectionLabel> : null}
           <ListCardTitle>{title}</ListCardTitle>
-          <ListCardPlatform>{platform}</ListCardPlatform>
           <ListCardLanguage>{language}</ListCardLanguage>
+          <ListCardPlatform>{platform}</ListCardPlatform>
         </ListCardLink>
       </ListCard>
     );
